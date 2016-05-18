@@ -2,7 +2,12 @@
 
 Example
 -------
+```
+composer require --prefer-dist mrcat29/numerical-methods
+```
+
 ```php
+
 <?php
 
 use MrCat\NumericalMethods\JorgeBoole;
