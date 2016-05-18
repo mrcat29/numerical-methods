@@ -3,7 +3,7 @@
 Example
 -------
 ```
-composer require --prefer-dist mrcat29/numerical-methods
+composer require mrcat29/numerical-methods
 ```
 
 ```php
