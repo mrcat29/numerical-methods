@@ -1,0 +1,21 @@
+{
+    "name": "mrcat29/numerical-methods",
+    "description": "numerical methods",
+    "type": "library",
+    "minimum-stability": "0.0.1",
+    "prefer-stable": true,
+    "license": "MIT",
+    "authors": [{
+        "name": "freddy vargas",
+        "email": "fjvargas0629@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.3.0",
+        "denissimon/formula-parser": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrCat\\": "src/mrcat"
+        }
+    }
+}
