@@ -2,7 +2,6 @@
     "name": "mrcat29/numerical-methods",
     "description": "numerical methods",
     "type": "library",
-    "prefer-stable": true,
     "license": "MIT",
     "authors": [{
         "name": "freddy vargas",
