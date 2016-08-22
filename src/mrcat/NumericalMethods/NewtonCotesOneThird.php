@@ -1,16 +1,16 @@
 <?php
+
 namespace MrCat\NumericalMethods;
 
 class NewtonCotesOneThird extends Model
 {
-
     /*
      * params methods static
      */
-    static $rules = [
+    public static $rules = [
         'a' => [
             'numeric',
-            'required'
+            'required',
         ],
         'b' => [
             'numeric',
@@ -18,14 +18,14 @@ class NewtonCotesOneThird extends Model
         ],
         'functionX' => [
             'required',
-            'string'
-        ]
+            'string',
+        ],
     ];
 
     /*
      * formule for calculate delta
      */
-    protected $formuleI = "( delta * sum ) / 3";
+    protected $formuleI = '( delta * sum ) / 3';
 
     /*
      * logic method
@@ -37,7 +37,6 @@ class NewtonCotesOneThird extends Model
         $var = [];
 
         for ($i = 0; $i <= $count; $i++) {
-
             array_push($var, 4);
         }
 
