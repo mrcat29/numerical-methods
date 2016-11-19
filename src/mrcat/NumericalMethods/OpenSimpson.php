@@ -1,16 +1,16 @@
 <?php
-
 namespace MrCat\NumericalMethods;
 
 class OpenSimpson extends Model
 {
+
     /*
      * params methods static
      */
-    public static $rules = [
+    static $rules = [
         'a' => [
             'numeric',
-            'required',
+            'required'
         ],
         'b' => [
             'numeric',
@@ -23,14 +23,14 @@ class OpenSimpson extends Model
         ],
         'functionX' => [
             'required',
-            'string',
-        ],
+            'string'
+        ]
     ];
 
     /*
      * formule for calculate delta
      */
-    protected $formuleI = '( delta * sum ) / 3';
+    protected $formuleI = "( delta * sum ) / 3";
 
     /*
      * logic method
@@ -42,9 +42,11 @@ class OpenSimpson extends Model
         $var = [];
 
         for ($i = 0; $i <= $count; $i++) {
+
             $value = 1;
 
             if ($i != 0) {
+
                 if ($i % 2 == 0) {
                     $value = 2;
                 } else {

@@ -4,6 +4,7 @@ namespace MrCat\NumericalMethods;
 
 abstract class Model
 {
+
     /*
      * var init for calculate delta
      */
@@ -32,7 +33,7 @@ abstract class Model
     /*
      * formule for calculate delta
      */
-    public static $FORMULE_DELTA = '( b - a ) / n';
+    static $FORMULE_DELTA = "( b - a ) / n";
 
     /*
      * formule for calculate delta
@@ -53,8 +54,7 @@ abstract class Model
     }
 
     /**
-     * var for calculate delta.
-     *
+     * var for calculate delta
      * @return array
      */
     protected function data()
@@ -69,11 +69,10 @@ abstract class Model
     /*
      * params methods static
      */
-    public static $rules = [];
+    static $rules = [];
 
     /**
-     * calculate delta.
-     *
+     * calculate delta
      * @return mixed
      */
     public function getDelta()
@@ -81,9 +80,9 @@ abstract class Model
         return Calculator::resolver(self::$FORMULE_DELTA, $this->data());
     }
 
+
     /**
-     * calculate x.
-     *
+     * calculate x
      * @return array
      */
     public function getX()
@@ -95,13 +94,14 @@ abstract class Model
         $i = 0;
 
         while ($calculate <= $this->b) {
+
             $delta = $this->getDelta()->getResult();
 
             if ($i == 0) {
                 $delta = 0;
             }
 
-            if ($calculate == $this->b or (round($calculate, 0, PHP_ROUND_HALF_UP)) == $this->b) {
+            if ($calculate == $this->b or (round($calculate, 2)) == $this->b) {
                 break;
             }
 
@@ -111,7 +111,7 @@ abstract class Model
 
             $x[$i] = [
                 'equation' => $equation,
-                'result'   => $calculate,
+                'result' => $calculate
             ];
 
             $i++;
@@ -121,8 +121,7 @@ abstract class Model
     }
 
     /**
-     * solved equation.
-     *
+     * solved equation
      * @return array
      */
     public function getCalculateFunction()
@@ -130,19 +129,21 @@ abstract class Model
         $solvedEquation = [];
 
         foreach ($this->getX() as $key => $value) {
-            $solved = Calculator::resolver($this->equation, $value['result']);
+
+            $solved = Calculator::resolver($this->equation, $value["result"]);
 
             $solvedEquation[$key] = [
                 'equation' => $solved->getEquation(),
-                'result'   => $solved->getResult(),
+                'result' => $solved->getResult()
             ];
+
         }
 
         return $solvedEquation;
     }
 
     /**
-     * multiply array dependency method.
+     * multiply array dependency method
      *
      * @return array
      */
@@ -153,16 +154,18 @@ abstract class Model
         $i = 0;
 
         foreach ($this->getCalculateFunction() as $key => $value) {
+
             $parserArrayMultiply = $this->handle()[$key];
 
-            $equation = "{$value['result']} * {$parserArrayMultiply}";
+            $equation = "{$value["result"]} * {$parserArrayMultiply}";
 
             $solved = Calculator::resolver($equation);
 
             $multiplyArray[$key] = [
                 'equation' => $solved->getEquation(),
-                'result'   => $solved->getResult(),
+                'result' => $solved->getResult()
             ];
+
         }
 
         return $multiplyArray;
@@ -176,7 +179,7 @@ abstract class Model
         $result = [];
 
         foreach ($this->getMethodNumerical() as $key) {
-            array_push($result, $key['result']);
+            array_push($result, $key["result"]);
         }
 
         return array_sum($result);
@@ -189,7 +192,7 @@ abstract class Model
     {
         $data = [
             'delta' => $this->getDelta()->getResult(),
-            'sum'   => $this->getSum(),
+            'sum' => $this->getSum()
         ];
 
         return Calculator::resolver($this->formuleI, $data);

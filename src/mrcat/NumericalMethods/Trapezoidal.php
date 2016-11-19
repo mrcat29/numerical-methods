@@ -4,32 +4,29 @@ namespace MrCat\NumericalMethods;
 
 class Trapezoidal extends Model
 {
+
     /*
      * params methods static
      */
-    public static $rules = [
+    static $rules = [
         'a' => [
-            'numeric',
-            'required',
-        ],
+            'numeric',],
         'b' => [
             'numeric',
-            'required',
         ],
         'n' => [
             'numeric',
-            'required',
+            'required'
         ],
         'functionX' => [
-            'required',
-            'string',
-        ],
+            'required'
+        ]
     ];
 
     /*
      * formule for calculate delta
      */
-    protected $formuleI = '(delta * sum ) / 2';
+    protected $formuleI = "( delta * sum ) / 2";
 
     public function handle()
     {
@@ -48,4 +45,5 @@ class Trapezoidal extends Model
 
         return $var;
     }
+
 }

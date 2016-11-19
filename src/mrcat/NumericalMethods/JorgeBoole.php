@@ -1,31 +1,28 @@
 <?php
-
 namespace MrCat\NumericalMethods;
 
 class JorgeBoole extends Model
 {
+
     /*
      * params methods static
      */
-    public static $rules = [
+    static $rules = [
         'a' => [
             'numeric',
-            'required',
         ],
         'b' => [
             'numeric',
-            'required',
         ],
         'functionX' => [
             'required',
-            'string',
-        ],
+        ]
     ];
 
     /*
      * formule for calculate delta
      */
-    protected $formuleI = '( 2 * delta * sum ) / 45';
+    protected $formuleI = "( 2 * delta * sum ) / 45";
 
     /*
      * logic method
@@ -37,9 +34,11 @@ class JorgeBoole extends Model
         $var = [];
 
         for ($i = 0; $i <= $count; $i++) {
+
             $value = 7;
 
             if ($i != 0) {
+
                 if ($i % 2 == 0) {
                     $value = 12;
                 } else {
@@ -65,4 +64,5 @@ class JorgeBoole extends Model
             return new static($data['a'], $data['b'], 4, $data['functionX']);
         }
     }
+
 }

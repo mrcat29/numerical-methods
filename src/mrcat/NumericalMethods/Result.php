@@ -1,5 +1,4 @@
 <?php
-
 namespace MrCat\NumericalMethods;
 
 class Result

@@ -6,7 +6,8 @@ use FormulaParser\FormulaParser;
 
 class Calculator
 {
-    public static $PRECISION = 10;
+
+    static $PRECISION = 10;
 
     /*
      * get result
@@ -39,4 +40,5 @@ class Calculator
 
         return $expression;
     }
+
 }
